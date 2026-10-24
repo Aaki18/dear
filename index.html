@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>dear. &mdash; Some feelings deserve to be held.</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FFF9F2;--beige:#F1E6D8;--blush:#E8C7C0;--ink:#49352D;--taupe:#A58C7B;--card:#fff;--mut:#7a6458;--err:#a33a2f;--ok:#4d6b45;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--cream:#2a1f1a;--beige:#3a2c25;--blush:#6b4a44;--ink:#f6ece0;--taupe:#c4a998;--card:#34271f;--mut:#cdb8a8;--err:#f08a7c;--ok:#9fc995;color-scheme:dark}}
+*,*:before,*:after{box-sizing:inherit}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,6vw,4rem)}h2{font-size:clamp(1.6rem,4vw,2.4rem)}h3{font-size:1.2rem}
+a{color:inherit}img{max-width:100%}
+:focus-visible{outline:3px solid var(--taupe);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}.sec{padding:56px 0}.alt{background:var(--beige)}
+.ann{background:var(--ink);color:var(--cream);text-align:center;font-size:.85rem;padding:8px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--cream);border-bottom:1px solid var(--beige);z-index:20}
+.bar{display:flex;align-items:center;gap:16px;height:68px}
+.lg{display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap}.lg img{display:block;width:112px;height:48px;object-fit:contain}
+.lg .r{position:relative;display:inline-block}.bow{position:absolute;width:.5em;left:.35em;top:-.42em;color:var(--ink)}
+nav{display:flex;gap:18px;margin-left:auto;align-items:center;font-size:.92rem}
+nav a{text-decoration:none;padding:6px 2px;border-bottom:2px solid transparent}nav a:hover,nav a.on{border-color:var(--blush)}
+.ic{background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:8px;position:relative}
+.cnt{position:absolute;top:-2px;right:-4px;background:var(--blush);color:var(--ink);border-radius:99px;font-size:.7rem;min-width:18px;text-align:center;font-weight:600}
+#burger{display:none}
+@media(max-width:860px){#burger{display:block;margin-left:auto}nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;gap:4px;padding:12px 20px 16px;border-bottom:1px solid var(--beige);margin:0;box-shadow:0 8px 18px #49352d14}nav.open{display:flex}nav a{padding:10px 2px}}
+.btn{display:inline-block;background:var(--ink);color:var(--cream);border:2px solid var(--ink);padding:12px 24px;border-radius:99px;font:600 .95rem Inter,sans-serif;cursor:pointer;text-decoration:none;transition:.2s}
+.btn:hover{transform:translateY(-2px);background:#5d453b}.btn.s{background:transparent;color:var(--ink)}.btn.s:hover{background:var(--beige)}.btn.sm{padding:8px 16px;font-size:.85rem}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+.card{background:var(--card);border-radius:20px;overflow:hidden;border:1px solid var(--beige);transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px #49352d18}.card .b{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.ph{aspect-ratio:4/5;background:linear-gradient(160deg,var(--beige),var(--blush));display:grid;place-items:center;font-size:3rem;position:relative}
+.ph small{position:absolute;bottom:8px;font-size:.65rem;color:var(--mut);letter-spacing:.1em}
+.price{font:600 1.15rem Fraunces,serif}.mut{color:var(--mut)}.tag{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--taupe)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:56px 0}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:28px;padding:36px 0}.hero-photo{aspect-ratio:4/3}}
+.hero > *, .two-col > *{min-width:0}
+.hero .ph{aspect-ratio:1;border-radius:32px;font-size:5rem}.photo{display:block;width:100%;height:100%;object-fit:cover}.hero-photo{aspect-ratio:16/9;border-radius:32px;overflow:hidden}.card .ph{aspect-ratio:4/5;overflow:hidden}.card .ph img{width:100%;height:100%;object-fit:cover}
+.story-photo{width:100%;max-width:100%;aspect-ratio:4/3;border-radius:24px;overflow:hidden;align-self:start}.story-photo .photo{height:100%;object-position:center}
+.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.steps div{background:var(--card);padding:20px;border-radius:16px}.steps div:before{counter-increment:s;content:counter(s);font:1.8rem Fraunces,serif;color:var(--taupe);display:block}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{background:var(--card);border:1px solid var(--blush);padding:8px 18px;border-radius:99px;font-size:.9rem}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}.f label{font-weight:500;font-size:.9rem}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--taupe);border-radius:12px;padding:11px 14px;width:100%}
+input[type=checkbox]{width:auto}.er{color:var(--err);font-size:.82rem;min-height:1em}input.bad,textarea.bad,select.bad{border-color:var(--err)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:600px){.two{grid-template-columns:1fr}}
+.pane{background:var(--card);border:1px solid var(--beige);border-radius:24px;padding:28px;display:flex;flex-direction:column;height:100%}
+.drop{border:2px dashed var(--taupe);border-radius:16px;padding:24px;text-align:center;background:var(--cream)}.drop.over{background:var(--beige)}
+.th{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:10px;margin-top:14px}
+.th div{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--beige)}.th img{width:100%;height:100%;object-fit:cover}
+.th button{position:absolute;top:3px;right:3px;border:0;border-radius:99px;background:var(--ink);color:var(--cream);width:22px;height:22px;cursor:pointer}
+.th i{position:absolute;left:0;bottom:0;height:4px;background:var(--blush);animation:w .6s forwards}@keyframes w{from{width:0}to{width:100%}}
+.row{display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--beige);flex-wrap:wrap}.row .ph{width:72px;aspect-ratio:1;font-size:1.6rem;border-radius:12px}.row>div:nth-child(2){flex:1;min-width:160px}
+.crumb{font-size:.85rem;color:var(--mut);padding:20px 0 0}.crumb a{text-decoration:none}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}@media(max-width:800px){.two-col{grid-template-columns:1fr;gap:28px}}
+.product-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.product-media{aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:var(--beige)}
+.product-media .photo{height:100%;object-position:center}
+.product-info{background:var(--card);border:1px solid var(--beige);border-radius:24px;padding:28px;min-width:0}
+.product-info h1{font-size:clamp(2rem,4vw,2.8rem);overflow-wrap:anywhere}
+.product-info .price{margin:8px 0 16px}
+.product-info p{margin:0 0 16px}
+.product-info ul{margin:0 0 20px}
+.product-info .btn{margin-top:4px}
+.product-info details{margin-top:10px}
+@media(max-width:800px){.product-detail{grid-template-columns:1fr;gap:20px}.product-media{aspect-ratio:4/3;border-radius:18px}.product-info{padding:22px;border-radius:18px}}
+.custom-photo{aspect-ratio:4/3;border-radius:24px;overflow:hidden;margin-top:0}.custom-photo .photo{height:100%}
+.helpful{margin:22px 0 0;padding:16px 18px;border-radius:14px;background:var(--beige);font-size:.9rem}.helpful strong{display:block;margin-bottom:4px}
+ul.ck{list-style:none;padding:0}ul.ck li{position:relative;padding-left:1.2em}ul.ck li:before{content:"";position:absolute;left:.15em;top:.72em;width:.42em;height:.42em;border-radius:50%;background:var(--taupe)}
+.tl{list-style:none;padding:0;margin:0;border-left:2px solid var(--blush)}.tl li{padding:0 0 14px 18px;position:relative}.tl li:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blush)}.tl li.d:before{background:var(--ink)}
+.st{display:inline-block;padding:3px 12px;border-radius:99px;background:var(--beige);font-size:.78rem;font-weight:600}
+.note{background:var(--beige);border-left:4px solid var(--blush);padding:12px 16px;border-radius:10px;font-size:.9rem}
+details{background:var(--card);border-radius:12px;padding:14px 18px;margin-bottom:10px;border:1px solid var(--beige)}summary{cursor:pointer;font-weight:500}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tabs button{border:1.5px solid var(--taupe);background:none;color:inherit;border-radius:99px;padding:7px 16px;cursor:pointer;font:inherit;font-size:.88rem}.tabs button.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap}.toolbar input{max-width:260px}.toolbar select{max-width:200px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--beige)}.sc{overflow-x:auto}
+footer{background:var(--ink);color:var(--cream);padding:48px 0 24px;margin-top:0;clear:both}footer .lg{color:var(--cream)}.bow{color:inherit}footer a{display:block;text-decoration:none;opacity:.8;padding:3px 0;font-size:.9rem}footer a:hover{opacity:1}
+.fg{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}footer h4{font:400 1rem Fraunces,serif;margin:0 0 8px}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:99px;opacity:0;pointer-events:none;transition:.3s;z-index:50;max-width:90vw}#toast.show{opacity:1}
+dialog{border:0;border-radius:24px;background:var(--cream);color:var(--ink);padding:28px;max-width:420px;width:90vw}dialog::backdrop{background:#49352d88}
+.empty{text-align:center;padding:60px 20px}.empty .ph{width:120px;margin:0 auto 16px;aspect-ratio:1;border-radius:50%}
+.center{text-align:center}.ok{color:var(--ok)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(max-width:600px){.wrap{padding-left:16px;padding-right:16px}.sec{padding:36px 0}.bar{height:60px;gap:10px}.lg img{width:92px;height:42px}nav{top:60px}.ann{font-size:.75rem;padding:7px 12px}.hero h1{font-size:clamp(2.25rem,12vw,3.2rem)}h1{overflow-wrap:anywhere}.btn{max-width:100%;text-align:center}.toolbar{display:grid;grid-template-columns:1fr}.toolbar input,.toolbar select{max-width:none}.grid{grid-template-columns:1fr;gap:16px}.card .ph{aspect-ratio:4/3}.story-photo,.custom-photo{border-radius:18px}.pane{padding:20px;border-radius:18px}.fg{grid-template-columns:1fr 1fr;gap:24px 16px}footer{padding-top:36px}footer .lg img{width:92px}}
+@media(max-width:600px){#app > .crumb{padding-left:24px;padding-right:24px}#app > .wrap.sec{padding-left:24px;padding-right:24px}}
+</style></head><body>
+<div class="ann">Made with love, personalized just for you.</div>
+<header><div class="wrap bar">
+<span id="logoSlot"></span>
+<button class="ic" id="burger" aria-label="Menu" aria-expanded="false">Menu</button>
+<nav id="nav" aria-label="Main">
+<a href="#home" data-r="home">Home</a>
+<a href="#shop" data-r="shop">Shop</a>
+<a href="#shop-memory" data-r="shop-memory">Memory Gifts</a>
+<a href="#shop-frames" data-r="shop-frames">Photo Frames</a>
+<a href="#custom" data-r="custom">Custom Gifts</a>
+<a href="#about" data-r="about">Our Story</a>
+<a href="#contact" data-r="contact">Contact</a>
+<a href="#" data-instagram target="_blank" rel="noopener noreferrer" class="ic" aria-label="Instagram">Instagram</a></nav></div></header>
+<main id="app" tabindex="-1"></main>
+<footer><div class="wrap"><div class="fg">
+<div><span id="flogo"></span><p class="serif" style="margin:.4em 0">Some feelings deserve to be held.</p><p style="font-size:.85rem;opacity:.8">Personalized memory boxes, photo frames, handwritten notes and thoughtful gifts, made to order by dear.</p></div>
+<div><h4>Quick links</h4><a href="#home">Home</a><a href="#about">Our Story</a><a href="#contact">Contact &amp; FAQ</a></div>
+<div><h4>Shop</h4><a href="#shop-memory">Memory Envelopes</a><a href="#shop-memory">Memory Boxes</a><a href="#shop-frames">Photo Frames</a><a href="#custom">Custom Gifts</a></div>
+<div><h4>Policies</h4><a href="#legal">Privacy Policy</a><a href="#legal">Terms &amp; Conditions</a><a href="#legal">Shipping &amp; Delivery</a><a href="#legal">Returns, Refunds &amp; Cancellation</a><a href="#legal">Photo Upload Policy</a></div>
+<div><h4>Say hello</h4><a href="#" data-instagram target="_blank" rel="noopener noreferrer">Instagram</a><p style="font-size:.85rem;opacity:.85">Message us on Instagram to order or ask a question.</p></div>
+</div><p style="font-size:.8rem;opacity:.7;margin-top:28px">&copy; <span id="yr"></span> dear. All rights reserved.</p></div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="dlg"><h3 id="dt"></h3><p id="db"></p><div style="display:flex;gap:10px;justify-content:flex-end"><button class="btn s sm" id="dn">Cancel</button><button class="btn sm" id="dy">Confirm</button></div></dialog>
+<script>
+const INSTAGRAM_PROFILE = "https://www.instagram.com/deargifts26/";
+const $ = s => document.querySelector(s);
+const e = s => String(s ?? '').replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+const instagramLink = label => `<a class="btn" href="${INSTAGRAM_PROFILE}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+document.querySelectorAll('[data-instagram]').forEach(link => link.href = INSTAGRAM_PROFILE);
+const logo = () => `<a class="lg" href="#home" aria-label="dear. home"><img src="Dear Gift Logo.png" alt="dear. logo" width="112" height="48"></a>`;
+$('#logoSlot').innerHTML = logo(); $('#flogo').innerHTML = logo(); $('#yr').textContent = new Date().getFullYear();
+const P = [
+ {id:'envelope',cat:'memory',catN:'Memory Envelopes',name:'Memory Envelope',price:89,image:'assets/products/memory-envelope.jpg',short:'A little envelope filled with memories, photos, and words worth keeping.',inc:['7 personalized photos or Polaroid-style prints','Personalized memory cards','Thoughtful message notes','Customized cover card with recipient name and occasion','Neat envelope presentation']},
+ {id:'box',cat:'memory',catN:'Memory Boxes',name:'Memory Box',price:199,image:'assets/products/memory-box.jpg',short:'A keepsake box filled with photographs, personal notes, and a little piece of your story.',inc:['5 personalized notes placed in envelopes','10 personalized photos or Polaroid-style prints','1 small photo frame','1 personalized wish card','Neatly arranged memory box presentation']},
+ {id:'magazine',cat:'memory',catN:'Memory Gifts',name:'A4 Photo Magazine',price:189,image:'assets/products/a4-photo-magazine.png',short:'Turn your favourite memories into a personalized A4-size photo magazine. Includes 8 pages of your favourite photos, thoughtfully arranged into a beautiful keepsake. Additional pages can be added at an extra cost, confirmed through Instagram.',inc:['A4 size','8 pages of your favourite photos','Beautifully arranged personalized keepsake','Additional pages available at an extra cost, confirmed through Instagram']},
+ {id:'keychain',cat:'memory',catN:'Memory Gifts',name:'Small Photo Keychain',price:69,image:'assets/products/small-photo-keychain.png',short:'Carry your favourite memories everywhere with a personalized photo keychain featuring up to 15 photos or small Polaroid-style pictures.',inc:['Small personalized photo keychain','Up to 15 photos or small Polaroid-style pictures']},
+ {id:'f812',cat:'frames',catN:'Photo Frames',name:'8 × 12 Photo Frame',price:299,image:'assets/products/frame-8x12.jpg',short:'Photo printing included. Frame suitable for gifting or display.',inc:['Photo printing included','Personalized photograph','Frame suitable for gifting or display']},
+ {id:'f86',cat:'frames',catN:'Photo Frames',name:'8 × 6 Photo Frame',price:149,image:'assets/products/frame-8x6.jpg',short:'Photo printing included. Frame suitable for gifting or display.',inc:['Photo printing included','Personalized photograph','Frame suitable for gifting or display']},
+ {id:'f64',cat:'frames',catN:'Photo Frames',name:'6 × 4 Photo Frame',price:99,image:'assets/products/frame-6x4.jpg',short:'Photo printing included. A compact frame for a special memory.',inc:['Photo printing included','Personalized photograph','Compact photo frame for a special memory']},
+ {id:'custom',cat:'custom',catN:'Custom Gifts',name:'Custom Gift',price:null,image:'assets/products/custom-gift.jpg',short:'Tell us the occasion, your idea, and your budget. We will check availability and share a price before confirming the order.',inc:['Occasion','Gift idea','Budget','Preferred colors or theme','Personalization requirements','Reference image welcome']}
+];
+const get = id => P.find(p => p.id === id), inr = n => '₹' + n;
+const cardH = p => `<article class="card"><div class="ph"><img src="${p.image}" alt="${e(p.name)} product photography" loading="lazy" width="900" height="1125"></div><div class="b"><span class="tag">${p.catN}</span><h3>${p.name}</h3><p class="mut" style="margin:0;font-size:.88rem">${p.short}</p><div class="price" style="margin-top:auto">${p.price ? inr(p.price) : 'Price after review'}</div><a class="btn s sm" href="#p-${p.id}">View Details</a></div></article>`;
+const crumb = (...a) => `<nav class="crumb wrap" aria-label="Breadcrumb"><a href="#home">Home</a>${a.map(x => ' / ' + x).join('')}</nav>`;
+const V = {};
+V.home = () => `<div class="wrap hero"><div><span class="tag">dear.</span><h1>Some feelings deserve to be held.</h1><p class="mut" style="font-size:1.1rem;max-width:34ch">Thoughtfully personalized gifts made to celebrate the people, feelings, and moments that matter most.</p><p>${instagramLink('Order via Instagram')}</p></div><div class="hero-photo"><img class="photo" src="hero image.png" alt="Personalized memory gifts arranged for a special moment" width="1400" height="1400" fetchpriority="high"></div></div>
+<section class="sec alt"><div class="wrap"><h2 class="center">Find a gift to hold</h2><div class="grid">${[['Memory Envelopes','shop-memory','Photos, cards and notes in one little envelope.','assets/products/memory-envelope.jpg'],['Memory Boxes','shop-memory','A keepsake box of photos and handwritten notes.','assets/products/memory-box.jpg'],['Photo Frames','shop-frames','Your favorite photograph, printed and framed.','assets/products/frame-8x12.jpg'],['Custom Gifts','custom','Got an idea? We’ll make it real.','assets/products/custom-gift.jpg']].map(c => `<a class="card" href="#${c[1]}" style="text-decoration:none"><div class="ph"><img src="${c[3]}" alt="${e(c[0])}" loading="lazy" width="900" height="1125"></div><div class="b"><h3>${c[0]}</h3><span class="mut" style="font-size:.88rem">${c[2]}</span><strong>Explore →</strong></div></a>`).join('')}</div></div></section>
+<section class="sec"><div class="wrap"><h2>Bestsellers</h2><div class="grid">${P.slice(0,5).map(cardH).join('')}</div></div></section>
+<section class="sec alt"><div class="wrap two-col"><div><span class="tag">Made with care</span><h2>Little pieces of your story.</h2><p class="mut">Every order is personalized and prepared with care — from the photographs you choose to the words you write.</p>${instagramLink('Message us on Instagram')}</div><div class="hero-photo"><img class="photo" src="story image.png" alt="Preparing personalized photographs and handwritten notes for a gift" loading="lazy" width="1200" height="900"></div></div></section>`;
+V.shop = (filter='all') => `${crumb('Shop')}<div class="wrap sec"><h1>Shop gifts</h1><p class="mut">Little keepsakes, made to order. Browse the collection and message us on Instagram to order.</p><div class="tabs" role="tablist">${[['all','All Gifts'],['memory','Memory Gifts'],['frames','Photo Frames'],['custom','Custom Gifts']].map(t => `<button role="tab" data-filter="${t[0]}" class="${t[0] === filter ? 'on' : ''}" aria-selected="${t[0] === filter}">${t[1]}</button>`).join('')}</div><div class="toolbar"><input id="q" type="search" placeholder="Search gifts" aria-label="Search gifts"><select id="so" aria-label="Sort"><option value="r">Recommended</option><option value="l">Price: Low to High</option><option value="h">Price: High to Low</option></select></div><div class="grid" id="pg" style="margin-top:24px"></div></div>`;
+function drawShop(filter) { const q = ($('#q').value || '').toLowerCase(), so = $('#so').value; let list = P.filter(p => (filter === 'all' || p.cat === filter) && (p.name + p.short).toLowerCase().includes(q)); if (so === 'l') list.sort((a,b) => (a.price ?? 1e9) - (b.price ?? 1e9)); if (so === 'h') list.sort((a,b) => (b.price ?? -1) - (a.price ?? -1)); $('#pg').innerHTML = list.length ? list.map(cardH).join('') : '<div class="empty" style="grid-column:1/-1"><p>No gifts match your search.</p></div>'; }
+V.product = id => { const p = get(id); if (!p) return V.shop(); const custom = p.cat === 'custom'; return `${crumb('<a href="#shop">Shop</a>', e(p.name))}<div class="wrap sec product-detail"><div class="product-media"><img class="photo" src="${p.image}" alt="${e(p.name)} product photography" width="900" height="1125"></div><div class="product-info"><span class="tag">${p.catN}</span><h1>${p.name}</h1><div class="price" style="font-size:1.6rem">${p.price ? inr(p.price) : 'Price confirmed after reviewing your idea.'}</div><p>${p.short}</p><h3>${custom ? 'What we’ll ask' : 'What’s included'}</h3><ul class="ck">${p.inc.map(i => `<li>${i}</li>`).join('')}</ul>${p.cat === 'frames' ? '<p class="note">Other frame sizes may be available upon request. Availability and price will be confirmed before ordering.</p>' : ''}<p>${instagramLink(custom ? 'Discuss your custom gift' : 'Order via Instagram')}</p><h3>FAQ</h3><details><summary>How do I personalize it?</summary><p>Send your photos, names, occasion, and message when you contact dear. on Instagram.</p></details><details><summary>When will it be ready?</summary><p>Preparation and delivery estimates are shared after your details and availability are confirmed.</p></details></div></div>`; };
+V.custom = () => `${crumb('Custom Gifts')}<div class="wrap sec two-col"><div><span class="tag">Made for your moment</span><h1>Tell us your idea.</h1><p class="mut">Share the occasion, your inspiration, and your budget. We’ll check availability and reply with a price before anything is confirmed.</p><div class="custom-photo"><img class="photo" src="assets/products/custom-gift.jpg" alt="Thoughtful custom gift arrangement with notes and wrapping" loading="lazy" width="900" height="675"></div></div><div class="pane"><h2>Custom gift enquiry</h2><p>Send the details below in an Instagram message so we can help you personally.</p><ul class="ck"><li>The occasion and recipient</li><li>Your gift idea and preferred colors</li><li>Your budget and timeline</li><li>Any personalization requirements</li></ul><div class="helpful"><strong>Helpful tip</strong>Include your preferred delivery date and a reference photo if you have one. This helps us suggest the right idea and confirm availability faster.</div>${instagramLink('Enquire on Instagram')}</div></div>`;
+V.about = () => `${crumb('Our Story')}<div class="wrap sec two-col"><div><span class="tag">Our story</span><h1>Made for the moments you keep returning to.</h1><p>dear. creates small, personal gifts that turn photographs, notes, and memories into something you can hold.</p><p class="mut">Every piece is prepared to order with a warm, handmade feeling and thoughtful attention to detail.</p>${instagramLink('Say hello on Instagram')}</div><div class="story-photo"><img class="photo" src="story image.png" alt="Preparing personalized photographs and handwritten notes for a gift" loading="lazy" width="1200" height="900"></div></div>`;
+V.contact = () => `${crumb('Contact')}<div class="wrap sec center" style="max-width:700px"><span class="tag">Say hello</span><h1>Let’s make a little moment.</h1><p class="mut">For orders, questions, delivery details, or custom ideas, Instagram is the best way to reach dear.</p>${instagramLink('Open Instagram')}</div>`;
+V.legal = () => `${crumb('Policies')}<div class="wrap sec" style="max-width:760px"><h1>Policies</h1><details open><summary>Ordering</summary><p>All orders are discussed and confirmed through Instagram. Prices and availability are confirmed before preparation begins.</p></details><details><summary>Photos and privacy</summary><p>Only send photographs you have permission to share. Photos are used to prepare your requested gift.</p></details><details><summary>Delivery and returns</summary><p>Delivery timing, cancellations, and returns are discussed for each order based on the product and location.</p></details></div>`;
+function route() { const hash = location.hash.slice(1) || 'home', parts = hash.split('-'), a = parts[0], arg = parts.slice(1).join('-'); let html = a === 'home' ? V.home() : a === 'shop' ? V.shop(arg === 'memory' ? 'memory' : arg === 'frames' ? 'frames' : 'all') : a === 'p' ? V.product(arg) : a === 'custom' ? V.custom() : a === 'about' ? V.about() : a === 'contact' ? V.contact() : a === 'legal' ? V.legal() : V.home(); $('#app').innerHTML = html; scrollTo(0,0); $('#nav').classList.remove('open'); $('#burger').setAttribute('aria-expanded','false'); document.querySelectorAll('nav a[data-r]').forEach(l => l.classList.toggle('on', l.dataset.r === (a === 'p' ? 'shop' : hash))); if (a === 'shop') { drawShop(arg === 'memory' ? 'memory' : arg === 'frames' ? 'frames' : 'all'); $('#q').oninput = $('#so').onchange = () => drawShop(arg === 'memory' ? 'memory' : arg === 'frames' ? 'frames' : 'all'); document.querySelectorAll('[data-filter]').forEach(b => b.onclick = () => { location.hash = b.dataset.filter === 'all' ? 'shop' : '#shop-' + b.dataset.filter; }); } }
+$('#burger').onclick = () => { const open = $('#nav').classList.toggle('open'); $('#burger').setAttribute('aria-expanded', open); }; addEventListener('hashchange', route); route();
+</script></body></html>
